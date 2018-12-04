@@ -1,4 +1,15 @@
-core <- c("dplyr", "ggplot2", "purrr", "stringr", "tidyr", "pipeR")
+core <- c(
+  "data.table", "dplyr",
+  "here",
+  "ggplot2",
+  "pacman", "pipeR", "purrr",
+  "stringr",
+  "tidyr",
+  NULL,
+  "mytools", "ggAtusy",
+  NULL,
+  "patchwork"
+  )
 
 core_loaded <- function() {
   search <- paste0("package:", core)
