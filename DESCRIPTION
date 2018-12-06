@@ -27,10 +27,12 @@ Imports:
     forcats,
     stringr,
     tidyr,
+    felp,
     ggAtusy,
     mytools,
     patchwork
 Remotes:
+    atusy/felp,
     atusy/ggAtusy,
     atusy/mytools,
     thomasp85/patchwork

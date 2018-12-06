@@ -6,7 +6,7 @@ core <- c(
   "stringr",
   "tidyr",
   NULL,
-  "mytools", "ggAtusy",
+  "felp", "mytools", "ggAtusy",
   NULL,
   "patchwork"
   )
