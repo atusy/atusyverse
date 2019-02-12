@@ -10,6 +10,7 @@ Description: The 'atusyverse' is selection of packages designed to be loaded
 Depends: 
     R (>= 3.1)
 Imports: 
+    blogdown,
     callr,
     cli (>= 1.0.0),
     crayon (>= 1.3.4),
