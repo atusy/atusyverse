@@ -32,11 +32,13 @@ Imports:
     felp,
     ggAtusy,
     mytools,
+    furrr,
     patchwork
 Remotes:
     atusy/felp,
     atusy/ggAtusy,
     atusy/mytools,
+    DavisVaughan/furrr,
     thomasp85/patchwork
 Encoding: UTF-8
 LazyData: true
