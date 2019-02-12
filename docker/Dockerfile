@@ -2,8 +2,8 @@ FROM atusy/verse-daily:latest
 
 # Personal overides
 
-RUN apt-get install -y --no-install-recommends fish phantomjs
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-RUN apt-get update && apt-get install -y fonts-ipaexfont fonts-noto
+RUN apt-get update && apt-get install -y fonts-ipaexfont fonts-noto fish phantomjs
 RUN Rscript -e "source('https://install-github.me/atusy/atusyverse')"
-RUN Rscript -e "blogdown::install_hugo()"
+RUN echo "options(blogdown.hugo.dir = system.file(package = 'blogdown'))" >> /usr/local/lib/R/etc/Rprofile.site \
+  && Rscript -e "blogdown::install_hugo()"
