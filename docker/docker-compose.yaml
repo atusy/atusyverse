@@ -1,0 +1,14 @@
+version: "3"
+services:
+  r:
+    # image: atusy/atusyverse
+    build: "."
+    restart: always
+    ports:
+      - "8788:8787"
+    environment:
+      - USER=rstudio
+      - PASSWORD=password
+      - ROOT=true
+      - VIRTUAL_HOST=atusyverse.local
+    network_mode: "bridge"

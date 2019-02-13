@@ -10,35 +10,25 @@ Description: The 'atusyverse' is selection of packages designed to be loaded
 Depends: 
     R (>= 3.1)
 Imports: 
-    blogdown,
-    callr,
     cli (>= 1.0.0),
     crayon (>= 1.3.4),
     data.table,
     dplyr,
+    forcats,
     ggplot2,
     here,
     pacman,
     pipeR,
     purrr,
     rstudioapi (>= 0.7),
-    microbenchmark,
-    magrittr,
-    tibble (>= 1.4.2),
-    forcats,
     stringr,
+    tibble (>= 1.4.2),
     tidyr,
-    webshot,
+    magrittr,
     felp,
-    ggAtusy,
-    mytools,
-    furrr,
     patchwork
 Remotes:
     atusy/felp,
-    atusy/ggAtusy,
-    atusy/mytools,
-    DavisVaughan/furrr,
     thomasp85/patchwork
 Encoding: UTF-8
 LazyData: true
