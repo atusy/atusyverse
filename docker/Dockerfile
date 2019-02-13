@@ -4,7 +4,11 @@ FROM atusy/verse-daily:latest
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   && apt-get update \
-  && apt-get install -y fonts-ipaexfont fonts-noto fish phantomjs \
+  && apt-get install -y \
+    fonts-ipaexfont \
+    fonts-noto \
+    fish \
+    phantomjs \
   # atusyverse: contains webshot and blogdown
   && Rscript -e "source('https://install-github.me/atusy/atusyverse')" \
   # webshot (required to run webshot::webshot and subsequent phantomjs)
