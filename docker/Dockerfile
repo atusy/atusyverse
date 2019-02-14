@@ -24,6 +24,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     # forcats \
     leaflet \
     microbenchmark \
+    revealjs \
     webshot \
     # remotes \
   && Rscript -e "remotes::install_github(c('atusy/atusyverse', 'atusy/ggAtusy', 'atusy/mytools', 'DavisVaughan/furrr', 'thomasp85/patchwork'), upgrade = 'never')" \
