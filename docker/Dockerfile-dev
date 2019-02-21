@@ -4,3 +4,5 @@ RUN install2.r --error --deps TRUE \
     extrafont \
   # font setting
   && Rscript -e "extrafont::font_import(prompt = FALSE)" \
+  && echo "if(interactive()) options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'))" >> \
+    /usr/local/lib/R/etc/Rprofile.site

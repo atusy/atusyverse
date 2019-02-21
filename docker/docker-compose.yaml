@@ -1,8 +1,10 @@
 version: "3"
 services:
   r:
-    # image: atusy/atusyverse
-    build: "."
+    # image: atusy/atusyverse:dev
+    build: 
+      context: "."
+      dockerfile: Dockerfile-dev
     restart: always
     ports:
       - "8788:8787"
