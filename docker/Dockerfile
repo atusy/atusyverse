@@ -1,4 +1,4 @@
-FROM atusy/verse-daily:latest
+FROM atusy/tidyverse-daily:latest
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   && apt-get update \
@@ -16,11 +16,18 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     libgeos-dev \
     # for webshot
     phantomjs \
-  # callr, forcats and remotes supposed to be installed by rocker/tidyverse
+    # for rsvg imported by atusy/mytools
+    librsvg2-dev \
+  # tinytex
+  && install2.r --error tinytex \
+  && sudo -u rstudio Rscript -e "tinytex::install_tinytex()" \
   && install2.r --error --deps TRUE \
+    # callr, forcats and remotes supposed to be installed by rocker/tidyverse
     bench \
+    bookdown \
     blogdown \
     # callr \
+    extrafont \
     # forcats \
     leaflet \
     microbenchmark \
@@ -34,4 +41,13 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   # blogdown setting
   && echo "options(blogdown.hugo.dir = system.file(package = 'blogdown'))" >> \
     /usr/local/lib/R/etc/Rprofile.site \
-  && Rscript -e "blogdown::install_hugo()"
+  && Rscript -e "blogdown::install_hugo()" \
+  # extrafont setting
+  && Rscript -e "extrafont::font_import(prompt = FALSE)" \
+  # Let atusyverse be a default package
+  && echo "if(interactive()) options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'))" >> \
+    /usr/local/lib/R/etc/Rprofile.site
+
+COPY user-settings /home/rstudio/.rstudio/monitored/
+
+CMD ["/init"]
