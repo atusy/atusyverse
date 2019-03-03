@@ -10,9 +10,9 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     fish \
     # for units required by sf
     libudunits2-dev \
-    # for rgdal required by sd
+    # for rgdal required by sf
     libgdal-dev \
-    # for rgeos required by sd
+    # for rgeos required by sf
     libgeos-dev \
     # for webshot
     phantomjs \
@@ -48,6 +48,6 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   && echo "if(interactive()) options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'))" >> \
     /usr/local/lib/R/etc/Rprofile.site
 
-COPY user-settings /home/rstudio/.rstudio/monitored/
+COPY user-settings /home/rstudio/.rstudio/monitored/user-settings/
 
 CMD ["/init"]
