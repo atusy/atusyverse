@@ -1,8 +1,13 @@
-FROM atusy/tidyverse-daily:latest
+FROM rocker/tidyverse:latest
+
+ARG pandoc="2.7.2"
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+  # apt
   && apt-get update \
   && apt-get install -y --no-install-recommends \
+    # curl for fisher
+    curl \
     # fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
     fonts-noto-cjk fonts-noto-hinted fonts-noto-mono fonts-noto-unhinted \
@@ -18,10 +23,18 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     phantomjs \
     # for rsvg imported by atusy/mytools
     librsvg2-dev \
-  # tinytex
-  && install2.r --error tinytex \
-  && sudo -u rstudio Rscript -e "tinytex::install_tinytex()" \
+  # Install pandoc
+  && rm -rf \
+      /usr/lib/rstudio-server/bin/pandoc \
+      /usr/local/bin/pandoc \
+      /usr/local/bin/pandoc-citeproc \
+  && curl -LO \
+    https://github.com/jgm/pandoc/releases/download/${pandoc}/pandoc-${pandoc}-1-amd64.deb && \
+    dpkg -i pandoc-${pandoc}-1-amd64.deb && \
+    rm pandoc-${pandoc}-1-amd64.deb \
+  # Install and configure R packages
   && install2.r --error --deps TRUE \
+    tinytex \
     # callr, forcats and remotes supposed to be installed by rocker/tidyverse
     bench \
     bookdown \
@@ -36,18 +49,24 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     # remotes \
   && Rscript -e "remotes::install_github(c('atusy/atusyverse', 'atusy/ggAtusy', 'atusy/mytools', 'DavisVaughan/furrr', 'thomasp85/patchwork'), upgrade = 'never')" \
   # webshot setting
-  && echo "QT_QPA_PLATFORM=offscreen" >> \
-    /usr/local/lib/R/etc/Renviron \
-  # blogdown setting
-  && echo "options(blogdown.hugo.dir = system.file(package = 'blogdown'))" >> \
-    /usr/local/lib/R/etc/Rprofile.site \
-  && Rscript -e "blogdown::install_hugo()" \
+  && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
   # extrafont setting
   && Rscript -e "extrafont::font_import(prompt = FALSE)" \
   # Let atusyverse be a default package
   && echo "if(interactive()) options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'))" >> \
     /usr/local/lib/R/etc/Rprofile.site
 
+USER rstudio
+
+RUN \
+  # R: install tinytex and hugo
+  Rscript -e "tinytex::install_tinytex(); blogdown::install_hugo()" \
+  # fish: install theme
+  && curl -Lo /home/rstudio/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher \
+  && fish -c "fisher add oh-my-fish/theme-yimmy"
+
 COPY user-settings /home/rstudio/.rstudio/monitored/user-settings/
+
+USER root
 
 CMD ["/init"]
