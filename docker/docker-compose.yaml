@@ -4,10 +4,9 @@ services:
     # image: atusy/atusyverse:dev
     build:
       context: "."
-      dockerfile: Dockerfile-minimal
-    restart: always
+      dockerfile: Dockerfile
     ports:
-      - "8789:8787"
+      - "8790:8787"
     environment:
       - USER=rstudio
       - PASSWORD=password
