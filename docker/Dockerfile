@@ -47,7 +47,12 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     revealjs \
     webshot \
     # remotes \
-  && Rscript -e "remotes::install_github(c('atusy/atusyverse', 'atusy/ggAtusy', 'atusy/mytools', 'DavisVaughan/furrr', 'thomasp85/patchwork'), upgrade = 'never')" \
+  && installGithub.r --deps TRUE --update TRUE \
+    atusy/atusyverse \
+    atusy/ggAtusy \
+    atusy/mytools \
+    DavisVaughan/furrr \
+    thomasp85/patchwork \
   # webshot setting
   && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
   # extrafont setting
