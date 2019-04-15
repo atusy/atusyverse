@@ -6,8 +6,12 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   # apt
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    # curl
+    # for xonsh
     curl \
+    python3-pip \
+    python3-prompt-toolkit \
+    python3-pygments \
+    python3-setproctitle \
     # fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
     fonts-noto-cjk fonts-noto-hinted fonts-noto-mono fonts-noto-unhinted \
@@ -21,6 +25,13 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     phantomjs \
     # for rsvg imported by atusy/mytools
     librsvg2-dev \
+  # Install xonsh
+  ## make sure setuptools are latest
+  && pip3 install --upgrade setuptools \
+  ## install wheel separately to avoid  "invalid command bdist_wheel"
+  && pip3 install wheel \
+  && pip3 install xonsh gnureadline \
+  && curl -Lo /etc/xonshrc https://raw.githubusercontent.com/atusy/dotfiles/master/.xonshrc \
   # Install pandoc
   && rm -rf \
       /usr/lib/rstudio-server/bin/pandoc \
