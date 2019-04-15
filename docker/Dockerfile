@@ -57,7 +57,9 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   && Rscript -e "extrafont::font_import(prompt = FALSE)" \
   # Let atusyverse be a default package
   && echo "if(interactive()) options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'))" >> \
-    /usr/local/lib/R/etc/Rprofile.site
+    /usr/local/lib/R/etc/Rprofile.site \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 USER rstudio
 
