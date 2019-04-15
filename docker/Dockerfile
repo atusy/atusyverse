@@ -6,13 +6,11 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   # apt
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    # curl for fisher
+    # curl
     curl \
     # fonts
     fonts-ipaexfont-gothic fonts-ipaexfont-mincho \
     fonts-noto-cjk fonts-noto-hinted fonts-noto-mono fonts-noto-unhinted \
-    # friendly interactive shell
-    fish \
     # for units required by sf
     libudunits2-dev \
     # for rgdal required by sf
@@ -66,9 +64,6 @@ USER rstudio
 RUN \
   # R: install tinytex and hugo
   Rscript -e "tinytex::install_tinytex(); blogdown::install_hugo()" \
-  # fish: install theme
-  && curl -Lo /home/rstudio/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher \
-  && fish -c "fisher add oh-my-fish/theme-yimmy"
 
 COPY user-settings /home/rstudio/.rstudio/monitored/user-settings/
 
