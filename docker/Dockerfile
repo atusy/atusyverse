@@ -61,6 +61,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     atusy/ggAtusy \
     atusy/mytools \
     DavisVaughan/furrr \
+    rstudio/pagedown \
     thomasp85/patchwork \
   # webshot setting
   && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
