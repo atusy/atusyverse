@@ -42,7 +42,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     dpkg -i pandoc-${pandoc}-1-amd64.deb && \
     rm pandoc-${pandoc}-1-amd64.deb \
   # Install and configure R packages
-  && install2.r --error --deps TRUE \
+  && install2.r --error --deps TRUE --ncpu -1 \
     tinytex \
     # callr, forcats and remotes supposed to be installed by rocker/tidyverse
     bench \
