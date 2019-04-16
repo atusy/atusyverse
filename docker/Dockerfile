@@ -74,9 +74,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
 
 USER rstudio
 
-RUN \
-  # R: install tinytex and hugo
-  Rscript -e "tinytex::install_tinytex(); blogdown::install_hugo()" \
+RUN Rscript -e "tinytex::install_tinytex(); blogdown::install_hugo()"
 
 COPY user-settings /home/rstudio/.rstudio/monitored/user-settings/
 
