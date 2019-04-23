@@ -25,6 +25,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     phantomjs \
     # for rsvg imported by atusy/mytools
     librsvg2-dev \
+    # for devtools::check
+    qpdf \
   # Install xonsh
   ## make sure setuptools are latest
   && pip3 install --upgrade setuptools \
