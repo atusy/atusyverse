@@ -25,8 +25,10 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     phantomjs \
     # for rsvg imported by atusy/mytools
     librsvg2-dev \
-    # for devtools::check
+    # Other dependencies
+    ghostscript \
     qpdf \
+    libmagick++-dev \
   # Install xonsh
   ## make sure setuptools are latest
   && pip3 install --upgrade setuptools \
@@ -44,20 +46,22 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     dpkg -i pandoc-${pandoc}-1-amd64.deb && \
     rm pandoc-${pandoc}-1-amd64.deb \
   # Install and configure R packages
-  && install2.r --error --deps TRUE --ncpu -1 \
-    tinytex \
-    # callr, forcats and remotes supposed to be installed by rocker/tidyverse
+  && install2.r --error --deps TRUE --ncpu -1 --skipinstalled \
     bench \
     bookdown \
     blogdown \
-    # callr \
+    callr \
     extrafont \
-    # forcats \
+    forcats \
     leaflet \
+    magick \
     microbenchmark \
+    pagedown \
+    pkgdown \
     revealjs \
+    tinytex \
     webshot \
-    # remotes \
+    remotes \
   && installGithub.r --deps TRUE --update TRUE \
     atusy/atusyverse \
     atusy/ggAtusy \
