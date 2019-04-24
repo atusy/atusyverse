@@ -31,6 +31,10 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     libtesseract-dev \
     libleptonica-dev \
     tesseract-ocr-eng \
+    # for gifski by pdftools
+    cargo
+    # for av imported by pdftools
+    libavfilter-dev
     # Other dependencies
     ghostscript \
     qpdf \
