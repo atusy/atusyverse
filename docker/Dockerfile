@@ -25,6 +25,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     phantomjs \
     # for rsvg imported by atusy/mytools
     librsvg2-dev \
+    # for pdftools suggested by magick
+    libpoppler-cpp-dev \
     # Other dependencies
     ghostscript \
     qpdf \
@@ -57,6 +59,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     magick \
     microbenchmark \
     pagedown \
+    pdftools \
     pkgdown \
     revealjs \
     tinytex \
