@@ -30,6 +30,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     # for tesseract
     libtesseract-dev \
     libleptonica-dev \
+    tesseract-ocr-eng \
     # Other dependencies
     ghostscript \
     qpdf \
