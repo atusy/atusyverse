@@ -27,6 +27,9 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     librsvg2-dev \
     # for pdftools suggested by magick
     libpoppler-cpp-dev \
+    # for tesseract
+    libtesseract-dev \
+    libleptonica-dev \
     # Other dependencies
     ghostscript \
     qpdf \
