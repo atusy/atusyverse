@@ -1,14 +1,17 @@
 core <- c(
-  "data.table", "dplyr",
+  "bench",
+  "data.table",
+  "dplyr",
   "forcats",
   "ggplot2",
   "here",
-  "pacman", "pipeR", "purrr",
+  "pacman",
+  "pipeR",
+  "purrr",
   "stringr",
   "tidyr",
   NULL,
   "felp",
-  NULL,
   "patchwork"
   )
 

@@ -10,6 +10,7 @@ Description: The 'atusyverse' is selection of packages designed to be loaded
 Depends: 
     R (>= 3.1)
 Imports: 
+    bench,
     cli (>= 1.0.0),
     crayon (>= 1.3.4),
     data.table,
@@ -27,8 +28,28 @@ Imports:
     magrittr,
     felp,
     patchwork
+Suggests:
+    bookdown,
+    blogdown,
+    extrafont,
+    forcats,
+    ggbeeswarm,
+    ggridges,
+    kableExtra,
+    leaflet,
+    magick,
+    pagedown,
+    pkgdown,
+    revealjs,
+    tinytex,
+    webshot,
+    furrr
 Remotes:
     atusy/felp,
+    atusy/ggAtusy,
+    atusy/mytools,
+    DavisVaughan/furrr,
+    rstudio/pagedown,
     thomasp85/patchwork
 Encoding: UTF-8
 LazyData: true
