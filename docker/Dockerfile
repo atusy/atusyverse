@@ -54,39 +54,20 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   && curl -LO \
     https://github.com/jgm/pandoc/releases/download/${pandoc}/pandoc-${pandoc}-1-amd64.deb && \
     dpkg -i pandoc-${pandoc}-1-amd64.deb && \
-    rm pandoc-${pandoc}-1-amd64.deb \
+    rm pandoc-${pandoc}-1-amd64.deb 
+RUN set -x \
   # Install and configure R packages
-  && install2.r --error --deps TRUE --ncpu -1 --skipinstalled \
-    bench \
-    bookdown \
-    blogdown \
-    callr \
-    extrafont \
-    forcats \
-    leaflet \
-    magick \
-    microbenchmark \
-    pagedown \
-    pdftools \
-    pkgdown \
-    revealjs \
-    tinytex \
-    webshot \
-    remotes \
-  && installGithub.r --deps TRUE --update TRUE \
-    atusy/atusyverse \
-    atusy/ggAtusy \
-    atusy/mytools \
-    DavisVaughan/furrr \
-    rstudio/pagedown \
-    thomasp85/patchwork \
+  && echo "options(Ncpus = max(1L, parallel::detectCores()))" > .Rprofile \
+  && r -e "remotes::install_github('atusy/atusyverse', upgrade = 'always', dependencies = TRUE)" \
   # webshot setting
   && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
   # extrafont setting
   && Rscript -e "extrafont::font_import(prompt = FALSE)" \
   # Let atusyverse be a default package
-  && echo "if(interactive()) options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'))" >> \
+  && echo \
+    "options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'[interactive()]))" >> \
     /usr/local/lib/R/etc/Rprofile.site \
+  && rm .Rprofile \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
