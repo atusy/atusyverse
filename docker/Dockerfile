@@ -39,6 +39,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     ghostscript \
     qpdf \
     libmagick++-dev \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* \
   # Install xonsh
   ## make sure setuptools are latest
   && pip3 install --upgrade setuptools \
@@ -55,21 +57,18 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     https://github.com/jgm/pandoc/releases/download/${pandoc}/pandoc-${pandoc}-1-amd64.deb && \
     dpkg -i pandoc-${pandoc}-1-amd64.deb && \
     rm pandoc-${pandoc}-1-amd64.deb 
+
 RUN set -x \
   # Install and configure R packages
-  && echo "options(Ncpus = max(1L, parallel::detectCores()))" > .Rprofile \
-  && r -e "remotes::install_github('atusy/atusyverse', upgrade = 'always', dependencies = TRUE)" \
+  && r -e "options(Ncpus = max(1L, parallel::detectCores())); remotes::install_github('atusy/atusyverse', upgrade = 'always', dependencies = TRUE)" \
   # webshot setting
   && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
   # extrafont setting
   && Rscript -e "extrafont::font_import(prompt = FALSE)" \
-  # Let atusyverse be a default package
+  # atusyverse as a default package, and prettycode in default
   && echo \
-    "options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'[interactive()]))" >> \
-    /usr/local/lib/R/etc/Rprofile.site \
-  && rm .Rprofile \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+    "options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'[interactive()])); prettycode::prettycode()" \
+    >> /usr/local/lib/R/etc/Rprofile.site
 
 USER rstudio
 

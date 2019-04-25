@@ -19,7 +19,9 @@ Imports:
     ggplot2,
     here,
     pacman,
+    pak,
     pipeR,
+    prettycode,
     purrr,
     rstudioapi (>= 0.7),
     stringr,
@@ -41,6 +43,7 @@ Suggests:
     pagedown,
     pkgdown,
     revealjs,
+    svglite,
     tinytex,
     webshot,
     furrr
