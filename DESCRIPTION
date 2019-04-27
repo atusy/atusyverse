@@ -2,9 +2,9 @@ Package: atusyverse
 Title: Easily Install and Load Select Packages
 Version: 0.0.1
 Authors@R: c(
-    person("YASUMOTO Atsushi", , email = "atusy.7+atusyverse@gmail.com", role = c("aut", "cre"))
+    person("YASUMOTO Atsushi", email = "atusy.7+atusyverse@gmail.com", role = c("aut", "cre"))
   )
-Description: The 'atusyverse' provides easy installation and loading of selection of packages.
+Description: The package provides easy installation and loading of selection of packages.
 Depends: 
     R (>= 3.1)
 Imports: 
@@ -32,6 +32,7 @@ Suggests:
     ggAtusy,
     ggbeeswarm,
     ggridges,
+    latex2exp,
     leaflet,
     magick,
     mytools,
@@ -44,7 +45,8 @@ Remotes:
     atusy/ggAtusy,
     atusy/mytools,
     DavisVaughan/furrr,
-    thomasp85/patchwork
+    thomasp85/patchwork,
+    stefano-meschiari/latex2exp
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
