@@ -41,8 +41,7 @@ RUN set -x \
   # && curl -Lo /etc/xonshrc \
   #   https://raw.githubusercontent.com/atusy/dotfiles/master/.xonshrc
   && wget https://raw.githubusercontent.com/atusy/dotfiles/master/.xonshrc \
-  && mkdir /etc/xonshrc \
-  && mv .xonshrc /etc/xonshrc/.xonshrc
+  && mv .xonshrc /etc/xonshrc
 
 RUN set -x \
   # Install and configure R packages
