@@ -29,10 +29,12 @@ Imports:
     patchwork
 Suggests:
     atusydown,
+    ggAtusy,
     ggbeeswarm,
     ggridges,
     leaflet,
     magick,
+    mytools,
     pak,
     revealjs,
     furrr
