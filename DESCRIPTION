@@ -4,9 +4,7 @@ Version: 0.0.1
 Authors@R: c(
     person("YASUMOTO Atsushi", , email = "atusy.7+atusyverse@gmail.com", role = c("aut", "cre"))
   )
-Description: The 'atusyverse' is selection of packages designed to be loaded
-    in concert. The purpose of this package is to make it easy to install and 
-    subsequently load those packages.
+Description: The 'atusyverse' provides easy installation and loading of selection of packages.
 Depends: 
     R (>= 3.1)
 Imports: 
@@ -19,7 +17,6 @@ Imports:
     ggplot2,
     here,
     pacman,
-    pak,
     pipeR,
     prettycode,
     purrr,
@@ -31,23 +28,16 @@ Imports:
     felp,
     patchwork
 Suggests:
-    bookdown,
-    blogdown,
-    extrafont,
-    forcats,
+    atusydown,
     ggbeeswarm,
     ggridges,
-    kableExtra,
     leaflet,
     magick,
-    pagedown,
-    pkgdown,
+    pak,
     revealjs,
-    svglite,
-    tinytex,
-    webshot,
     furrr
 Remotes:
+    atusy/atusydown,
     atusy/felp,
     atusy/ggAtusy,
     atusy/mytools,

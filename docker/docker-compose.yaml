@@ -6,10 +6,10 @@ services:
       context: "."
       dockerfile: Dockerfile
     ports:
-      - "8790:8787"
+      - "8787"
     environment:
       - USER=rstudio
       - PASSWORD=password
       - ROOT=true
-      - VIRTUAL_HOST=atusyverse.local
+      - VIRTUAL_HOST=atusyverse.localhost
     network_mode: "bridge"
