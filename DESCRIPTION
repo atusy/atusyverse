@@ -37,7 +37,6 @@ Suggests:
     mytools,
     pak,
     plotly,
-    revealjs,
     furrr
 Remotes:
     atusy/atusydown,
@@ -45,7 +44,6 @@ Remotes:
     atusy/ggAtusy,
     atusy/mytools,
     DavisVaughan/furrr,
-    rstudio/pagedown,
     thomasp85/patchwork
 Encoding: UTF-8
 LazyData: true
