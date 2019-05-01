@@ -29,6 +29,7 @@ Imports:
     patchwork
 Suggests:
     atusydown,
+    devtools,
     ggAtusy,
     ggbeeswarm,
     ggridges,
@@ -38,6 +39,9 @@ Suggests:
     mytools,
     pak,
     plotly,
+    profvis,
+    styler,
+    testthat,
     furrr
 Remotes:
     atusy/atusydown,
