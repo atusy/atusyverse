@@ -40,6 +40,7 @@ Suggests:
     pak,
     plotly,
     profvis,
+    pryr,
     quantreg,
     styler,
     testthat,
