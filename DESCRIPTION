@@ -47,7 +47,6 @@ Suggests:
     furrr
 Remotes:
     atusy/atusydown,
-    atusy/felp,
     atusy/ggAtusy,
     atusy/mytools,
     DavisVaughan/furrr,
