@@ -46,10 +46,6 @@ RUN set -x \
 RUN set -x \
   # Install and configure R packages
   && r -e "options(Ncpus = max(1L, parallel::detectCores())); remotes::install_github('atusy/atusyverse', upgrade = 'always', dependencies = TRUE)" \
-  # webshot setting
-  && echo "QT_QPA_PLATFORM=offscreen" >> /usr/local/lib/R/etc/Renviron \
-  # extrafont setting
-  && Rscript -e "extrafont::font_import(prompt = FALSE)" \
   # atusyverse as a default package, and prettycode in default
   && echo \
     "options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'[interactive()])); prettycode::prettycode()" \
