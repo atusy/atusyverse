@@ -29,9 +29,11 @@ Imports:
     patchwork
 Suggests:
     atusydown,
+    cowplot,
     devtools,
     ggAtusy,
     ggbeeswarm,
+    ggforce,
     ggridges,
     latex2exp,
     leaflet,
@@ -42,6 +44,7 @@ Suggests:
     profvis,
     pryr,
     quantreg,
+    Rd2roxygen,
     styler,
     testthat,
     furrr
