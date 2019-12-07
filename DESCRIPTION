@@ -65,7 +65,6 @@ Remotes:
     atusy/ggAtusy,
     atusy/mytools,
     DavisVaughan/furrr,
-    thomasp85/patchwork,
     stefano-meschiari/latex2exp
 Encoding: UTF-8
 LazyData: true
