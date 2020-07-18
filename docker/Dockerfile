@@ -37,7 +37,7 @@ RUN set -x \
   && pip3 install --upgrade setuptools \
   ## install wheel separately to avoid  "invalid command bdist_wheel"
   && pip3 install wheel \
-  && pip3 install xonsh gnureadline \
+  && pip3 install xonsh \
   # && curl -Lo /etc/xonshrc \
   #   https://raw.githubusercontent.com/atusy/dotfiles/master/.xonshrc
   && wget https://raw.githubusercontent.com/atusy/dotfiles/master/.xonshrc \
