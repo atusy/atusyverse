@@ -1,4 +1,4 @@
-FROM atusy/atusydown:20200831
+FROM atusy/atusydown:latest
 
 RUN set -x \
   # apt
