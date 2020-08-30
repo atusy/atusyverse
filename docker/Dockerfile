@@ -1,7 +1,9 @@
-FROM atusy/atusydown:latest
+FROM atusy/atusydown:20200831
 
 RUN set -x \
   # apt
+  && apt-get install -y --no-install-recommends gnupg \
+  && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
     # for xonsh
