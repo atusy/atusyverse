@@ -36,6 +36,7 @@ Suggests:
     ggAtusy,
     ggbeeswarm,
     ggforce,
+    gghighlight,
     ggridges,
     infer,
     latex2exp,
@@ -45,11 +46,14 @@ Suggests:
     parsnip,
     pak,
     pdp,
+    pins,
     plotly,
     profvis,
     pryr,
     quantreg,
     ranger,
+    renv,
+    revdepcheck,
     Rd2roxygen,
     recipes,
     rsample,
@@ -65,6 +69,7 @@ Remotes:
     atusy/ggAtusy,
     atusy/mytools,
     DavisVaughan/furrr,
+    r-lib/revdepcheck,
     stefano-meschiari/latex2exp
 Encoding: UTF-8
 LazyData: true
