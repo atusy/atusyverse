@@ -6,12 +6,6 @@ RUN set -x \
   && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    # for xonsh
-    # curl \
-    python3-pip \
-    python3-prompt-toolkit \
-    python3-pygments \
-    python3-setproctitle \
     # for units required by sf
     libudunits2-dev \
     # for rgdal required by sf
@@ -33,17 +27,7 @@ RUN set -x \
     # for magick
     libmagick++-dev \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
-  # Install xonsh
-  ## make sure setuptools are latest
-  && pip3 install --upgrade setuptools \
-  ## install wheel separately to avoid  "invalid command bdist_wheel"
-  && pip3 install wheel \
-  && pip3 install xonsh \
-  # && curl -Lo /etc/xonshrc \
-  #   https://raw.githubusercontent.com/atusy/dotfiles/master/.xonshrc
-  && wget https://raw.githubusercontent.com/atusy/dotfiles/master/.xonshrc \
-  && mv .xonshrc /etc/xonshrc
+  && rm -rf /var/lib/apt/lists/*
 
 RUN set -x \
   # Install and configure R packages
