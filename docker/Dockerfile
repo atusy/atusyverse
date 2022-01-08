@@ -34,7 +34,7 @@ RUN set -x \
   && r -e "options(Ncpus = max(1L, parallel::detectCores())); remotes::install_github('atusy/atusyverse', upgrade = 'always', dependencies = TRUE)" \
   # atusyverse as a default package, and prettycode in default
   && echo \
-    "options(defaultPackages = c(getOption('defaultPackages'), 'atusyverse'[interactive()])); prettycode::prettycode()" \
+    "if (interactive()) prettycode::prettycode()" \
     >> /usr/local/lib/R/etc/Rprofile.site
 
 CMD ["/init"]
